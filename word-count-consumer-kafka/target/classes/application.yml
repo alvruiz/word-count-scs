@@ -1,0 +1,36 @@
+
+server:
+  port: 8888
+spring.cloud.stream:
+  function:
+    definition: process
+    bindings:
+      input:
+       destination: input
+      output:
+        destination: output
+  kafka:
+    streams:
+      binder:
+        applicationId: word-count-consumer-kafka
+        configuration:
+          commit.interval.ms: 100
+          default:
+            key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+management:
+  metrics:
+    export:
+      wavefront:
+        enabled: false
+      prometheus:
+        enabled: false
+        rsocket:
+          enabled: false
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: health,info,bindings
