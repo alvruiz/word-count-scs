@@ -1,4 +1,5 @@
-##Guía
+## Guía
+Esta aplicación usa Kafka para contar palabras a través de Spring Cloud Stream.
 Para ejecutar el programa ejecuta:
 - Docker-compose up
 - Abre kowl en navegador para ver las colas: http://localhost:18080
